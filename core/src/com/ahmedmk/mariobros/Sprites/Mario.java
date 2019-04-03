@@ -21,9 +21,9 @@ public class Mario extends Sprite {
         this.world = world;
         defineMario();
 
-        marioStand = new TextureRegion(getTexture(), 1, 11, 16, 16);
+        marioStand = new TextureRegion(getTexture(), 0, 0, 16, 16);
         setRegion(marioStand);
-        setBounds(0,0,16 / MarioBros.PPM,16 / MarioBros.PPM);
+        setBounds(0,0,16,16);
 
     }
 
