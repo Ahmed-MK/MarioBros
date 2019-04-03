@@ -1,6 +1,8 @@
 package com.ahmedmk.mariobros.Tools;
 
 import com.ahmedmk.mariobros.MarioBros;
+import com.ahmedmk.mariobros.Sprites.Brick;
+import com.ahmedmk.mariobros.Sprites.Coin;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -49,24 +51,16 @@ public class Box2dWorldCreator {
         for(MapObject object: map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)){
 
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth()/2) / MarioBros.PPM, (rect.getY() + rect.getHeight()/2) / MarioBros.PPM);
-            body = world.createBody(bdef);
-            shape.setAsBox((rect.getWidth()/2) / MarioBros.PPM,(rect.getHeight()/2) / MarioBros.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
+
+            new Brick(world, map, rect);
 
         }
         //create coin bodies /fixtures
         for(MapObject object: map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
 
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth()/2) / MarioBros.PPM, (rect.getY() + rect.getHeight()/2) / MarioBros.PPM);
-            body = world.createBody(bdef);
-            shape.setAsBox((rect.getWidth()/2) / MarioBros.PPM,(rect.getHeight()/2) / MarioBros.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
+
+            new Coin(world, map, rect);
 
         }
     }

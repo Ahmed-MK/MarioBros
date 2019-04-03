@@ -1,7 +1,9 @@
 package com.ahmedmk.mariobros.Sprites;
 
 import com.ahmedmk.mariobros.MarioBros;
+import com.ahmedmk.mariobros.Screens.PlayScreen;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.CircleShape;
@@ -12,10 +14,17 @@ public class Mario extends Sprite {
 
     public World world;
     public Body b2body;
+    private TextureRegion marioStand;
 
-    public Mario(World world){
+    public Mario(World world, PlayScreen screen){
+        screen.getAtlas().findRegion("/home/ahmed/AndroidStudioProjects/MarioBros/android/assets/Mario GFX/little_mario.png");
         this.world = world;
         defineMario();
+
+        marioStand = new TextureRegion(getTexture(), 1, 11, 16, 16);
+        setRegion(marioStand);
+        setBounds(0,0,16 / MarioBros.PPM,16 / MarioBros.PPM);
+
     }
 
     public void defineMario(){
