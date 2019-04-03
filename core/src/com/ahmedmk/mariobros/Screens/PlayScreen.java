@@ -9,23 +9,15 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.viewport.*;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class PlayScreen implements Screen {
     //the actual game class itself
@@ -55,7 +47,7 @@ public class PlayScreen implements Screen {
     public PlayScreen(MarioBros game){
 
         //Atlas Texture
-        Atlas = new TextureAtlas("/home/ahmed/AndroidStudioProjects/MarioBros/android/assets/Mario_and_Enemies.pack");
+        Atlas = new TextureAtlas("Mario_and_Enemies.pack");
 
         this.game = game;
         gameCam = new OrthographicCamera();
@@ -63,7 +55,7 @@ public class PlayScreen implements Screen {
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("/home/ahmed/AndroidStudioProjects/MarioBros/android/assets/level1.tmx");
+        map = mapLoader.load("level1.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1 / MarioBros.PPM);
         gameCam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2,0);
 
@@ -105,8 +97,8 @@ public class PlayScreen implements Screen {
 
         world.step(1/60f, 6,2);
 
+        mario.update(deltaTime);
         gameCam.position.x = mario.b2body.getPosition().x;
-
 
         gameCam.update();
         //tells our renderer to draw only what camera can see in our game world

@@ -7,7 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f00b8b53-0859-4438-894e-7880af0feae1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/MarioBros.iws" beforeDir="false" afterPath="$PROJECT_DIR$/MarioBros.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/com/ahmedmk/mariobros/AndroidLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/com/ahmedmk/mariobros/AndroidLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/MarioBros.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/MarioBros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Scenes/Hud.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Scenes/Hud.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Screens/PlayScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Screens/PlayScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Coin.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Coin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Mario.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Mario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/desktop/src/com/ahmedmk/mariobros/desktop/DesktopLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/desktop/src/com/ahmedmk/mariobros/desktop/DesktopLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/src/com/ahmedmk/mariobros/IOSLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/ios/src/com/ahmedmk/mariobros/IOSLauncher.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -112,8 +120,9 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="5" />
+          <entry key="gitignore" value="1" />
           <entry key="gradle" value="3" />
-          <entry key="java" value="36" />
+          <entry key="java" value="38" />
           <entry key="pack" value="1" />
           <entry key="png" value="2" />
           <entry key="txt" value="1" />
@@ -125,8 +134,8 @@
           <entry key="CLASS" value="5" />
           <entry key="Groovy" value="3" />
           <entry key="Image" value="2" />
-          <entry key="JAVA" value="36" />
-          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="JAVA" value="38" />
+          <entry key="PLAIN_TEXT" value="2" />
           <entry key="Scratch" value="1" />
           <entry key="XML" value="7" />
         </counts>
@@ -134,14 +143,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="9" />
-          <entry key="java" value="2683" />
+          <entry key="java" value="2768" />
           <entry key="xml" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="9" />
-          <entry key="JAVA" value="2683" />
+          <entry key="JAVA" value="2768" />
           <entry key="XML" value="17" />
         </counts>
       </usages-collector>
@@ -152,8 +161,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/MarioBros.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state>
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,8 +173,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Mario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="183">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -176,8 +185,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Screens/PlayScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="65" column="99" selection-start-line="65" selection-start-column="99" selection-end-line="65" selection-end-column="99" />
+            <state relative-caret-position="-1122">
+              <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
               <folding>
                 <element signature="e#2689#2690#0" expanded="true" />
                 <element signature="e#2717#2718#0" expanded="true" />
@@ -4072,10 +4081,11 @@
         <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/MarioBros.java" />
         <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Scenes/Hud.java" />
-        <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Coin.java" />
         <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/InteractiveTileObject.java" />
         <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Brick.java" />
         <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Tools/Box2dWorldCreator.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Coin.java" />
         <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Screens/PlayScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Mario.java" />
       </list>
@@ -4136,24 +4146,6 @@
             <path>
               <item name="MarioBros" type="b2602c69:ProjectViewProjectNode" />
               <item name="MarioBros" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="MarioBros" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MarioBros" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="MarioBros" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MarioBros" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MarioBros" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MarioBros" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="Mario GFX" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MarioBros" type="b2602c69:ProjectViewProjectNode" />
@@ -4548,16 +4540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Coin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/InteractiveTileObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
@@ -4693,10 +4675,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Coin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.9/1409aca6a4293a7ca8dbd60281c3211a195dd39a/gdx-1.9.9-sources.jar!/com/badlogic/gdx/graphics/g2d/Sprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/MarioBros.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -4705,8 +4711,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Screens/PlayScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="65" column="99" selection-start-line="65" selection-start-column="99" selection-end-line="65" selection-end-column="99" />
+        <state relative-caret-position="-1122">
+          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
           <folding>
             <element signature="e#2689#2690#0" expanded="true" />
             <element signature="e#2717#2718#0" expanded="true" />
@@ -4716,8 +4722,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/ahmedmk/mariobros/Sprites/Mario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="183">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

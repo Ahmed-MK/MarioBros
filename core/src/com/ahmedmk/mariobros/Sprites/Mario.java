@@ -17,13 +17,15 @@ public class Mario extends Sprite {
     private TextureRegion marioStand;
 
     public Mario(World world, PlayScreen screen){
-        screen.getAtlas().findRegion("/home/ahmed/AndroidStudioProjects/MarioBros/android/assets/Mario GFX/little_mario.png");
+
+        super(screen.getAtlas().findRegion("little_mario"));
+
         this.world = world;
         defineMario();
 
-        marioStand = new TextureRegion(getTexture(), 0, 0, 16, 16);
+        marioStand = new TextureRegion(getTexture(), 1, 11, 16, 16);
+        setBounds(0,0,16 / MarioBros.PPM,16 / MarioBros.PPM);
         setRegion(marioStand);
-        setBounds(0,0,16,16);
 
     }
 
@@ -39,5 +41,10 @@ public class Mario extends Sprite {
 
         fdef.shape = shape;
         b2body.createFixture(fdef);
+    }
+
+    public void update(float deltaTime){
+        setPosition(b2body.getPosition().x - getWidth() /2, b2body.getPosition().y - getHeight() / 2);
+
     }
 }
