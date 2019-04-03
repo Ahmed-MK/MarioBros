@@ -2,6 +2,8 @@ package com.ahmedmk.mariobros.Screens;
 
 import com.ahmedmk.mariobros.MarioBros;
 import com.ahmedmk.mariobros.Scenes.Hud;
+import com.ahmedmk.mariobros.Sprites.Mario;
+import com.ahmedmk.mariobros.Tools.Box2dWorldCreator;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -43,79 +45,40 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
 
+    //create object from mario
+    Mario mario;
+
     public PlayScreen(MarioBros game){
         this.game = game;
         gameCam = new OrthographicCamera();
-        gamePort = new FitViewport(MarioBros.V_WIDTH,MarioBros.V_HEIGHT,gameCam);
+        gamePort = new FitViewport(MarioBros.V_WIDTH / MarioBros.PPM,MarioBros.V_HEIGHT / MarioBros.PPM,gameCam);
         hud = new Hud(game.batch);
 
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("level1.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map);
+        renderer = new OrthogonalTiledMapRenderer(map, 1 / MarioBros.PPM);
         gameCam.position.set(gamePort.getWorldWidth()/2, gamePort.getWorldHeight()/2,0);
 
         //world init
-        world = new World(new Vector2(0,0),true);
+        world = new World(new Vector2(0,-10),true);
         b2dr = new Box2DDebugRenderer();
-
-        BodyDef bdef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fdef = new FixtureDef();
-        Body body;
-
-        //create ground bodies and fixtures
-        for(MapObject object: map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)){
-
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set(rect.getX() + rect.getWidth()/2, rect.getY() + rect.getHeight()/2);
-            body = world.createBody(bdef);
-            shape.setAsBox(rect.getWidth()/2,rect.getHeight()/2);
-
-        }
-
-        //pipe bodies and fixtures
-        for(MapObject object: map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)){
-
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set(rect.getX() + rect.getWidth()/2, rect.getY() + rect.getHeight()/2);
-            body = world.createBody(bdef);
-            shape.setAsBox(rect.getWidth()/2,rect.getHeight()/2);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-
-        }
-        //brick bodies and fixtures
-        for(MapObject object: map.getLayers().get(5).getObjects().getByType(RectangleMapObject.class)){
-
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set(rect.getX() + rect.getWidth()/2, rect.getY() + rect.getHeight()/2);
-            body = world.createBody(bdef);
-            shape.setAsBox(rect.getWidth()/2,rect.getHeight()/2);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-
-        }
-        //create coin bodies /fixtures
-        for(MapObject object: map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)){
-
-            Rectangle rect = ((RectangleMapObject) object).getRectangle();
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set(rect.getX() + rect.getWidth()/2, rect.getY() + rect.getHeight()/2);
-            body = world.createBody(bdef);
-            shape.setAsBox(rect.getWidth()/2,rect.getHeight()/2);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-
-        }
+        new Box2dWorldCreator(world, map);
+        mario = new Mario(world);
     }
 
     //handle user interaction controls
     public void handleInput(float deltaTime){
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
+            mario.b2body.applyLinearImpulse(new Vector2(0,4f), mario.b2body.getWorldCenter(),true);
+
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && mario.b2body.getLinearVelocity().x <= 2)
+            mario.b2body.applyLinearImpulse(new Vector2(0.1f,0), mario.b2body.getWorldCenter(),true);
+
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && mario.b2body.getLinearVelocity().x >= -2)
+            mario.b2body.applyLinearImpulse(new Vector2(-0.1f,0), mario.b2body.getWorldCenter(),true);
+
         if (Gdx.input.isTouched())
-            gameCam.position.x += 150*deltaTime;
+            mario.b2body.applyLinearImpulse(new Vector2(0.1f,0), mario.b2body.getWorldCenter(),true);
 
 //        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
 //            gameCam.position.x += 150*deltaTime;
@@ -126,8 +89,16 @@ public class PlayScreen implements Screen {
     //update the game state
     public void update(float deltaTime){
         handleInput(deltaTime);
+
+        world.step(1/60f, 6,2);
+
+        gameCam.position.x = mario.b2body.getPosition().x;
+
+
         gameCam.update();
+        //tells our renderer to draw only what camera can see in our game world
         renderer.setView(gameCam);
+
     }
 
     @Override
@@ -177,6 +148,6 @@ public class PlayScreen implements Screen {
         renderer.dispose();
         world.dispose();
         b2dr.dispose();
-        //hud.dispose();
+        hud.dispose();
     }
 }
