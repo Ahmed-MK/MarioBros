@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -15,7 +16,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 import java.awt.*;
 
-public class Hud {
+public class Hud implements Disposable {
     //Special camera that stays locked to the hud while the world is moving around it
     public Stage stage;
     private Viewport viewport;
@@ -41,7 +42,7 @@ public class Hud {
         timeCount = 0;
         score = 0;
 
-        viewport = new FillViewport(MarioBros.V_Width, MarioBros.V_Height,new OrthographicCamera());
+        viewport = new FitViewport(MarioBros.V_WIDTH, MarioBros.V_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, spriteBatch);
 
         Table table = new Table();
@@ -66,4 +67,7 @@ public class Hud {
 
         stage.addActor(table);
     }
+
+    @Override
+    public void dispose() { stage.dispose(); }
 }
