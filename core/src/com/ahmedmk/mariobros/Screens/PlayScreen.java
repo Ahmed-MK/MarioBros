@@ -73,17 +73,43 @@ public class PlayScreen implements Screen {
 
     //handle user interaction controls
     public void handleInput(float deltaTime){
-        if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
-            mario.b2body.applyLinearImpulse(new Vector2(0,4f), mario.b2body.getWorldCenter(),true);
 
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && mario.b2body.getLinearVelocity().x <= 2)
+        //uncomment this for android controls
+
+        float accelY = Gdx.input.getAccelerometerY();
+
+        if (Gdx.input.justTouched()){
+            mario.b2body.applyLinearImpulse(new Vector2(0,3f), mario.b2body.getWorldCenter(),true);
+            //for debugging purposes
+            //System.out.println("Y : " + mario.b2body.getLinearVelocity().y);
+        }
+
+        if (accelY < -1 && mario.b2body.getLinearVelocity().x >= -2) {
+            mario.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), mario.b2body.getWorldCenter(), true);
+            //for debugging purposes
+            //System.out.println("Left : " + mario.b2body.getLinearVelocity().x);
+        }
+
+        if (accelY > +1 && mario.b2body.getLinearVelocity().x <= 2){
             mario.b2body.applyLinearImpulse(new Vector2(0.1f,0), mario.b2body.getWorldCenter(),true);
+            //for debugging purposes
+            //System.out.println("Right : " + mario.b2body.getLinearVelocity().x);
+        }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && mario.b2body.getLinearVelocity().x >= -2)
-            mario.b2body.applyLinearImpulse(new Vector2(-0.1f,0), mario.b2body.getWorldCenter(),true);
 
-        if (Gdx.input.isTouched())
-            mario.b2body.applyLinearImpulse(new Vector2(0.1f,0), mario.b2body.getWorldCenter(),true);
+        //Uncomment this for Desktop controls
+
+//        if (Gdx.input.isKeyJustPressed(Input.Keys.UP))
+//            mario.b2body.applyLinearImpulse(new Vector2(0,4f), mario.b2body.getWorldCenter(),true);
+//
+//        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && mario.b2body.getLinearVelocity().x <= 2)
+//            mario.b2body.applyLinearImpulse(new Vector2(0.1f,0), mario.b2body.getWorldCenter(),true);
+//
+//        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && mario.b2body.getLinearVelocity().x >= -2)
+//            mario.b2body.applyLinearImpulse(new Vector2(-0.1f,0), mario.b2body.getWorldCenter(),true);
+//
+//        if (Gdx.input.isTouched())
+//            mario.b2body.applyLinearImpulse(new Vector2(0.1f,0), mario.b2body.getWorldCenter(),true);
 
 //        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
 //            gameCam.position.x += 150*deltaTime;
